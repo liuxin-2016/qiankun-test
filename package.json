@@ -7,11 +7,12 @@
     "qiankun": "build.js"
   },
   "scripts": {
-    "install": "node bin/install.js npm",
+    "install": "npm-run-all --serial install:*",
+    "install:main": "cd main && yarn",
+    "install:child": "cd child && yarn",
     "start": "npm-run-all --parallel start:*",
     "start:main": "cd main && yarn start",
-    "start:child": "cd child && yarn start",
-    "build": "node bin/build.js"
+    "start:child": "cd child && yarn start"
   },
   "author": "",
   "license": "ISC",
